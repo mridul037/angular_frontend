@@ -1,0 +1,85 @@
+<app-header-one [sticky]="true"></app-header-one>
+<div class="title1 title-gradient section-t-space">
+  <h4>Listing Products</h4>
+  <h2 class="title-inner1">Listing Page</h2>
+</div>
+<!-- <div class="sort"> -->
+<!-- <mat-form-field appearance="fill">
+        <mat-label>Cars</mat-label>
+        <select matNativeControl required>
+          <option value="volvo">Volvo</option>
+          <option value="saab">Saab</option>
+          <option value="mercedes">Mercedes</option>
+          <option value="audi">Audi</option>
+        </select>
+      </mat-form-field> -->
+<!-- </div> -->
+<section class="section-b-space">
+    <div class="collection-wrapper">
+<div class="container">
+  <div class="row">
+    
+    <app-collection-left-sidebar></app-collection-left-sidebar>
+    
+    <div class="collection-product-wrapper cont" id="products">
+
+      <app-grid
+        [products]="products"
+        [paginate]="paginate"
+        [layoutView]="layoutView"
+        [sortBy]="sortBy"
+        (setGrid)="updateGridLayout($event)"
+        (setLayout)="updateLayoutView($event)"
+        (sortedBy)="sortByFilter($event)"
+      >
+      </app-grid>
+      <div class="product-wrapper-grid" [ngClass]="layoutView">
+        <div class="row">
+          <div
+            class="col-grid-box"
+            [ngClass]="grid"
+            *ngFor="let product of products"
+          >
+            <div class="product-box">
+              <app-product-box-four
+              [routerLink]="['/products/trim-dress']"
+                [product]="product"
+                [currency]="productService?.Currency"
+                [thumbnail]="false"
+                [cartModal]="true"
+                [loader]="true"
+              >
+              </app-product-box-four>
+            </div>
+          </div>
+          <div
+            class="col-sm-12 text-center section-b-space mt-5 no-found"
+            *ngIf="!products.length"
+          >
+            <img src="assets/images/empty-search.jpg" class="img-fluid mb-4" />
+            <h3>Sorry! Couldn't find the product you were looking For!!!</h3>
+            <p>
+              Please check if you have misspelt something or try searching with
+              other words.
+            </p>
+            <a
+              [routerLink]="['/shop/collection/left/sidebar']"
+              class="btn btn-solid"
+              >continue shopping</a
+            >
+          </div>
+        </div>
+      </div>
+      <app-pagination
+        [products]="products"
+        [paginate]="paginate"
+        (setPage)="setPage($event)"
+      >
+      </app-pagination>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+
+<app-footer-one></app-footer-one>

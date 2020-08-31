@@ -1,0 +1,99 @@
+<header class="sticky" [ngClass]="class" [class.fixed]="stick && sticky">
+  <div class="mobile-fix-option"></div>
+  <div class="top-header size" *ngIf="topbar">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-lg-6"> -->
+        <div class="header-contact">
+          <ul>
+            <li>Welcome to Our store Multikart</li>
+          </ul>
+        </div>
+        <!-- </div> -->
+
+        <!-- <section class="search-block"> -->
+        <!-- <div class="container "> -->
+        <div class="row">
+          <div class="col-lg-12 offset-lg-3">
+            <form class="form-header row noflex">
+              <select class="box" (change)="sorting($event)">
+                <ng-container *ngFor="let item of categoryItem">
+                  <option value="{{ item.id }}">{{ item.name }}</option>
+                </ng-container>
+              </select>
+              <div class="form-group wid nopad">
+                <!-- <div class="product-page-filter"> -->
+
+                <!-- </div> -->
+                <input
+                  type="text"
+                  class="form-control"
+                  name="searchText"
+                  placeholder="searchItem"
+                  [(ngModel)]="searchText"
+                />
+              </div>
+
+              <button type="submit" (click)="search($event)" class="btn btn-primary nopad box">
+                <i class="fa fa-search"></i>
+              </button>
+            </form>
+          </div>
+          
+          <ul class="header-dropdown ">
+            <li *ngFor="let c of subcat | filter: searchText" class="drop" >
+              <a (click)="place($event)">
+              {{ c }}
+              </a>
+            </li>
+          </ul>
+          <!-- </section> -->
+
+          <!-- <div class="col-lg-6 text-right"> -->
+          <ul class="header-dropdown row">
+            <li>
+              <a [routerLink]="['/pages/login']"
+                ><i aria-hidden="true"></i> Login</a
+              >
+            </li>
+            <li>
+              <a [routerLink]="['/shop/wishlist']"
+                ><i aria-hidden="true"></i> Logout</a
+              >
+            </li>
+            <!-- <li class="mobile-account">
+                <i class="fa fa-user" aria-hidden="true"></i> My Account
+              </li> -->
+          </ul>
+        </div>
+        <!-- </div> -->
+        <!-- </div> -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="main-menu">
+          <div class="menu-left">
+            <!-- <app-left-menu></app-left-menu> -->
+            <div class="brand-logo">
+              <a routerLink="/home" id="headerlogo">
+                <img [src]="themeLogo" class="img-fluid" alt="logo" />
+              </a>
+            </div>
+          </div>
+          <div class="menu-right pull-right">
+            <div>
+              <app-menu></app-menu>
+            </div>
+            <div>
+              <app-settings></app-settings>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

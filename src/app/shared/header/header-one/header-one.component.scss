@@ -1,0 +1,39 @@
+.popup{
+    position: absolute;
+    z-index: 2;
+    top: 5%;
+    left: 5%;
+    background: white;
+}
+.row{
+    flex-direction: row;
+    display: flex;
+    flex-wrap: nowrap; 
+}
+.size{
+    height:10vh;
+}
+.nopad{
+    padding:"0px"
+}
+.noflex{
+    flex-wrap: nowrap;
+
+}
+.wid{
+    width: 30vw;
+}
+.box{
+    height: 8.5vh;
+}
+.drop{
+    position: absolute;
+    left:40.5%;
+    background-color: lightgray;
+    width: 30vw;
+    top:1.5%;
+    z-index: 20;
+
+   
+    
+}

@@ -1,0 +1,80 @@
+<app-header-one [sticky]="true"></app-header-one>
+<div class="container">
+  <!-- <section class="section-b-space border-section border-top-0"> -->
+  <!-- <div class="row">
+        <div class="col"> -->
+  <!-- <div class="slide-6 no-arrow">
+                <owl-carousel-o [options]="CategorySliderConfig">
+                    <ng-container *ngFor="let category of categories">
+                        <ng-template carouselSlide>
+                            <div class="category-block">
+                                <a [routerLink]="['/lp']"
+                                   [queryParams]="{ category: 'shoes'}">
+                                    <div class="category-image">
+                                        <img [src]="category.image" alt="" class="w-auto">
+                                    </div>
+                                </a>
+                                <div class="category-details">
+                                    <a [routerLink]="['/lp']"
+                                       [queryParams]="{ category: 'shoes'}">
+                                        <h5>{{ category.title }}</h5>
+                                    </a>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </ng-container>
+                </owl-carousel-o>
+            </div> -->
+  <!-- </div>
+    </div> -->
+  <!-- </section> -->
+</div>
+<section class="section-b-space p-t-0">
+  <div class="container">
+    <div class="title3">
+      <h4>our collection</h4>
+      <h2 class="title-inner3">special products</h2>
+      <div class="line"></div>
+    </div>
+    <div class="row space">
+      <!-- <owl-carousel-o class="product-4 product-m no-arrow" > -->
+      <div class="box" *ngFor="let product of products | slice: 0:16">
+        <!-- <ng-template carouselSlide> -->
+        <div class="product-box">
+          <app-product-box-four
+            [routerLink]="['/lp']"
+            [product]="product"
+            [currency]="productService?.Currency"
+            [onHowerChangeImage]="true"
+            [cartModal]="true"
+          >
+          </app-product-box-four>
+        </div>
+        <!-- </ng-template> -->
+      </div>
+      <!-- </owl-carousel-o> -->
+    </div>
+  </div>
+</section>
+<!-- Product slider End -->
+
+<!-- collection banner start -->
+<!-- <section class="p-0">
+  <div class="container-fluid">
+      <div class="row category-border">
+          <div class="col-sm-4 border-padding" *ngFor="let collection of collections2">
+              <div class="category-banner">
+                  <div>
+                      <img [src]="collection.image" class="img-fluid" alt="">
+                  </div>
+                  <div class="category-box">
+                      <a [routerLink]="['/shop/collection/left/sidebar']"
+                         [queryParams]="{ category: 'shoes'}">
+                          <h2>{{collection.title}}</h2>
+                      </a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section> -->
