@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map, startWith, delay } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../classes/product';
+import { SELECT_PANEL_VIEWPORT_PADDING } from '@angular/material/select';
 
 const state = {
   products: JSON.parse(localStorage['products'] || '[]'),
@@ -40,7 +41,7 @@ export class ProductService {
         'Content-Type':  'application/json',
     }),
       };
-   this.Products= this.http.post('http://localhost:3000/listing',ID,httpOptions);
+   this.Products= this.http.post('http://206.189.143.221:3527/listing',ID,httpOptions);
     
     
     
@@ -58,8 +59,27 @@ export class ProductService {
         'Content-Type':  'application/json',
     }),
       };
-   return  this.Products= this.http.post('http://localhost:3000/listing',ID,httpOptions)
+   return  this.Products= this.http.post('http://206.189.143.221:3527/listing',ID,httpOptions)
   
+  }
+  public addProduct(data:any):void{
+    const httpOptions = {
+      headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+      }),
+        };
+    this.http.post('http://206.189.143.221:3527/cart',data,httpOptions);
+
+      //  let {title,price,discount,stock}=data[0];
+      //  const value={
+      //    title:title,
+      //    price:price,
+      //    discount:discount,
+      //    stock:stock
+      //  }
+     
+    
+       
   }
 
   // Get Products By Slug
@@ -167,6 +187,12 @@ export class ProductService {
     const stock = this.calculateStockCounts(items, qty);
     
     if(!stock) return false
+    const httpOptions = {
+      headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+      }),
+        };
+   
 
     if (cartItem) {
         cartItem.quantity += qty    
@@ -176,9 +202,10 @@ export class ProductService {
         quantity: qty
       })
     }
-
+    this.http.post('http://206.189.143.221:3527/cart',state.cart,httpOptions);
     this.OpenCart = true; // If we use cart variation modal
     localStorage.setItem("cartItems", JSON.stringify(state.cart));
+   
     return true;
   }
 

@@ -24,22 +24,23 @@ export class ProductsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private router: Router,
     public productService: ProductService) { 
-      this.route.data.subscribe(response => this.product = response.data );
-    }
+      
+      this.route.data.subscribe(response =>this.product = response.data );
+console.log(JSON.stringify(this.product)+"--->");    }
 
   ngOnInit(): void {
   }
 
   // Get Product Color
-  Color(variants) {
-    const uniqColor = []
-    for (let i = 0; i < Object.keys(variants).length; i++) {
-      if (uniqColor.indexOf(variants[i].color) === -1 && variants[i].color) {
-        uniqColor.push(variants[i].color)
-      }
-    }
-    return uniqColor
-  }
+  // Color(variants) {
+  //   const uniqColor = []
+  //   for (let i = 0; i < Object.keys(variants).length; i++) {
+  //     if (uniqColor.indexOf(variants[i].color) === -1 && variants[i].color) {
+  //       uniqColor.push(variants[i].color)
+  //     }
+  //   }
+  //   return uniqColor
+  // }
 
   // Get Product Size
   Size(variants) {

@@ -190,22 +190,22 @@
                                             <ul>
                                                 <li>
                                                     <div class="radio-option">
-                                                        <input type="radio" [(ngModel)]="payment" [value]="'Stripe'"  name="payment-group" id="payment-2">
-                                                        <label for="payment-2">Stripe
-                                                            <span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label>
+                                                        <!-- <input type="radio" [(ngModel)]="payment" [value]="'Stripe'"  name="payment-group" id="payment-2"> -->
+                                                        <!-- <label for="payment-2">Stripe
+                                                            <span class="small-text">Please send a check to Store Name, Store Street, Store Town, Store State / County, Store Postcode.</span></label> -->
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="radio-option paypal">
-                                                        <input type="radio" [(ngModel)]="payment" [value]="'Paypal'" name="payment-group" id="payment-3">
-                                                        <label for="payment-3">PayPal<span class="image"><img src="assets/images/paypal.png" alt="" /></span></label>
+                                                        <!-- <input type="radio" [(ngModel)]="payment" [value]="'Paypal'" name="payment-group" id="payment-3"> -->
+                                                        <!-- <label for="payment-3">PayPal<span class="image"><img src="assets/images/paypal.png" alt="" /></span></label> -->
                                                     </div>
                                                 </li>
                                             </ul>
                                         </div>
                                     </div>
                                     <div class="text-right">
-                                        <button type="submit" class="btn-solid btn" [disabled]="!checkoutForm.valid" (click)="stripeCheckout()" *ngIf="payment == 'Stripe'">
+                                        <button type="submit" class="btn-solid btn" [disabled]="!checkoutForm.valid" (click)="stripeCheckout()" >
                                            Place Order
                                         </button>
                                         <ngx-paypal [config]="payPalConfig" *ngIf="payment == 'Paypal'"></ngx-paypal>

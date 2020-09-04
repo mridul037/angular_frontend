@@ -1,32 +1,39 @@
-<app-breadcrumb [title]="product?.title" [breadcrumb]="'Product'"></app-breadcrumb>
+
+<app-breadcrumb [title]="Readme" [breadcrumb]="'Product'"></app-breadcrumb>
 <!-- section start -->
+
 <section class="section-b-space">
   <div class="collection-wrapper productdetail">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
+                
+                <img class='img' src="https://ik.imagekit.io/dailyobjects/product-images/travel/dailyobjects/cable-wrap/cable-wallet-case-green-red-set-of-2-images/Cable-Wallet-Case-Green-Red-Set-of-2-View.jpg?tr=w-236,h-275,cm-pad_resize"/>
+                  
                 <owl-carousel-o [options]="ProductDetailsMainSliderConfig" #owlCar  class="product-slick">
                     <ng-container *ngFor="let image of product.images; index as i">
                         <ng-template carouselSlide [id]="i">
-                            <div>
-                                <img [defaultImage]="'assets/images/product/placeholder.jpg'" 
+                            <!-- <div> -->
+                                <!-- <img 
                                      [lazyLoad]="image.src" 
-                                     [alt]="image.alt" class="img-fluid">
-                            </div>
+                                     [alt]="image.alt" class="img-fluid"> -->
+                            <!-- </div> -->
                         </ng-template>
                     </ng-container>
                 </owl-carousel-o>
                 <div class="row">
                     <div class="col-12 p-0">
                         <div class="slider-nav">
+                           
                             <owl-carousel-o [options]="ProductDetailsThumbConfig" class="product-slick">
                                 <ng-container *ngFor="let image of product.images; index as i">
                                     <ng-template carouselSlide [id]="i">
                                         <div class="owl-thumb" [class.active]="i == activeSlide">
                                         <img [defaultImage]="'assets/images/product/placeholder.jpg'" 
-                                           [lazyLoad]="image.src" 
+                                           [lazyLoad]="'https://ik.imagekit.io/dailyobjects/product-images/travel/dailyobjects/cable-wrap/cable-wallet-case-green-red-set-of-2-images/Cable-Wallet-Case-Green-Red-Set-of-2-View.jpg?tr=w-236,h-275,cm-pad_resize'" 
                                            [alt]="image.alt" class="img-fluid" 
                                            (click)="owlCar.to(activeSlide = i.toString())">
+                                           <!-- <img src="https://ik.imagekit.io/dailyobjects/product-images/travel/dailyobjects/cable-wrap/cable-wallet-case-green-red-set-of-2-images/Cable-Wallet-Case-Green-Red-Set-of-2-View.jpg?tr=w-236,h-275,cm-pad_resize"/> -->
                                         </div>
                                     </ng-template>
                                 </ng-container>
@@ -47,12 +54,12 @@
                     <h3>
                         {{ (product?.price | discount:product) * productService.Currency?.price | currency: productService.Currency?.currency:'symbol' }}
                     </h3>
-                    <ul class="color-variant" *ngIf="Color(product?.variants).length">
+                    <!-- <ul class="color-variant" *ngIf="Color(product?.variants).length">
                         <li [class]="color" [class.active]="activeSlide == i.toString()" *ngFor="let color of Color(product?.variants); index as i" 
                             [ngStyle]="{'background-color': color}"
                             (click)="owlCar.to(activeSlide = i.toString())">
                         </li>
-                    </ul>
+                    </ul> -->
                     <!-- <app-stock-inventory [stock]="product.stock"></app-stock-inventory> -->
                     <div class="product-description border-product">
                         <h6 class="product-title size-text" *ngIf="Size(product.variants).length">
@@ -213,4 +220,5 @@
   </div>
 </section>
 <app-size-modal #sizeChart [product]="product"></app-size-modal>
+
 <!-- Section ends -->

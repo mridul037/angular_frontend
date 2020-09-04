@@ -18,10 +18,10 @@ export class HomeService {
   ) {}
 
   Banner<T>(): Observable<any> {
-    return this.http.get("http://localhost:3000/home/banner");
+    return this.http.get("http://206.189.143.221:3527/home/banner");
   }
   Feature<T>(): Observable<any> {
-    return this.http.get("http://localhost:3000/home/feature");
+    return this.http.get("http://206.189.143.221:3527/home/feature");
   }
   
 }

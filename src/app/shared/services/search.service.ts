@@ -16,7 +16,7 @@ export class SearchService{
 
 
       GetCategory<T>(): Observable<any>{
-         return this.http.get("http://localhost:3000/search/category");
+         return this.http.get("http://206.189.143.221:3527/search/category");
          
       }
       GetSubCategory<T>(
@@ -28,7 +28,7 @@ export class SearchService{
             }),
         };
 
-         return this.http.post("http://localhost:3000/search/subcategory",data,httpOptions);
+         return this.http.post("http://206.189.143.221:3527/search/subcategory",data,httpOptions);
 
       }
 

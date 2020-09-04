@@ -48,20 +48,9 @@ export class CheckoutComponent implements OnInit {
 
   // Stripe Payment Gateway
   stripeCheckout() {
-    var handler = (<any>window).StripeCheckout.configure({
-      key: environment.stripe_token, // publishble key
-      locale: 'auto',
-      token: (token: any) => {
-        // You can access the token ID with `token.id`.
-        // Get the token ID to your server-side code for use.
-        this.orderService.createOrder(this.products, this.checkoutForm.value, token.id, this.amount);
-      }
-    });
-    handler.open({
-      name: 'Multikart',
-      description: 'Online Fashion Store',
-      amount: this.amount * 100
-    }) 
+    let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
+    width=1000,height=700,left=-1000,top=-1000`;
+    window.open('https://rzp.io/l/HvHVPXO','test',params);
   }
 
   // Paypal Payment Gateway

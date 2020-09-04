@@ -24,7 +24,7 @@ export default class ProfileService {
             'Authorization': `Bearer ${this.token}`, 
         }),
     };
-    return this.http.get("http://localhost:3000/profile",httpOptions);
+    return this.http.get("http://206.189.143.221:3527/profile",httpOptions);
   }
   
   

@@ -5,7 +5,7 @@
             <span class="lable2" *ngIf="product.sale">{{ product?.discount }}% off</span>
         </div>
         <div class="front">
-            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
+            <a [routerLink]="['/products/', product.title.replace(' ', '-')]">
             
                 <img [defaultImage]="ImageSrc ? ImageSrc : 'assets/images/product/placeholder.jpg'" 
                      [lazyLoad]="ImageSrc ? ImageSrc : product.images[0].src"  
@@ -13,7 +13,7 @@
             </a>
         </div>
         <div class="back" *ngIf="onHowerChangeImage">
-            <a [routerLink]="['/shop/product/left/sidebar/', product.title.replace(' ', '-')]">
+            <a [routerLink]="['/products/', product.title.replace(' ', '-')]">
                 <!-- <img [src]="ImageSrc ? ImageSrc : product.images[1].src" class="img-fluid lazy-loading" alt="{{ product.images[1].alt }}"> -->
             </a>
         </div>
@@ -41,7 +41,7 @@
   <div class="product-detail">
     <div>
       <bar-rating [rate]="5" [readOnly]="true"></bar-rating>
-      <a [routerLink]="['/shop/product/left/sidebar/', product?.title.replace(' ', '-')]">
+      <a [routerLink]="['/products/', product?.title.replace(' ', '-')]">
         <h6>{{ product?.title | titlecase }}</h6>
       </a>
       <h4>

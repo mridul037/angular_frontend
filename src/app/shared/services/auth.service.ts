@@ -27,7 +27,7 @@ export class AuthService {
              }),
          };
  
-   return this.http.post('http://localhost:3000/login',data,httpOptions)
+   return this.http.post('http://206.189.143.221:3527/login',data,httpOptions)
    
      }
     SignUp<T>(
@@ -39,7 +39,7 @@ export class AuthService {
             }),
         };
 
-  return this.http.post('http://localhost:3000/signup',data,httpOptions)
+  return this.http.post('http://206.189.143.221:3527/signup',data,httpOptions)
   
     }
     ForgetPassword<T>(data:any):Observable<any>{
@@ -48,7 +48,7 @@ export class AuthService {
             'Content-Type':  'application/json',
         }),
     };
-    return this.http.post('http://localhost:3000/forgetpassword',data,httpOptions);
+    return this.http.post('http://206.189.143.221:3527/forgetpassword',data,httpOptions);
   
     }
 
